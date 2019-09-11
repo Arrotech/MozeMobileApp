@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,7 +24,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText portfolio, occupation, phone, location, image, cost;
-    private TextView tvAddService;
     Button btnAdd;
 
     @Override
@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         location = (EditText) findViewById(R.id.etLocation);
         image = (EditText) findViewById(R.id.etImage);
         cost = (EditText) findViewById(R.id.etCost);
-        tvAddService = (TextView) findViewById(R.id.tvAddService);
 
         btnAdd = (Button) findViewById(R.id.btnAdd);
 
@@ -61,6 +60,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return true;
             case R.id.view_services:
                 startActivity(new Intent(this, ViewServices.class));
+                return true;
+            case R.id.register:
+                startActivity(new Intent(this, Register.class));
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -90,12 +92,50 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     private void addService(Service service){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://moze-api-endpoints.herokuapp.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+        String fname = portfolio.getText().toString().trim();
+        String lname = occupation.getText().toString().trim();
+        String phn = phone.getText().toString().trim();
+        String uname = location.getText().toString().trim();
+        String eml = image.getText().toString().trim();
+        String pass = cost.getText().toString().trim();
 
-        ServiceInterface serviceInterface = retrofit.create(ServiceInterface.class);
+        if(fname.isEmpty()){
+            portfolio.setError("First name required");
+            portfolio.requestFocus();
+            return;
+        }
+
+        if(lname.isEmpty()){
+            occupation.setError("Last name required");
+            occupation.requestFocus();
+            return;
+        }
+
+        if(phn.isEmpty()){
+            phone.setError("Phone number required");
+            phone.requestFocus();
+            return;
+        }
+
+        if(uname.isEmpty()){
+            location.setError("Username required");
+            location.requestFocus();
+            return;
+        }
+
+        if(eml.isEmpty()){
+            image.setError("Email required");
+            image.requestFocus();
+            return;
+        }
+
+        if(pass.isEmpty()){
+            cost.setError("Password required");
+            cost.requestFocus();
+            return;
+        }
+
+        ServiceInterface serviceInterface = ServiceGenerator.createService(ServiceInterface.class);
 
         Call<Service> call = serviceInterface.addService(service);
 

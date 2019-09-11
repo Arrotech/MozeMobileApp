@@ -8,6 +8,9 @@ import retrofit2.http.Path;
 
 public interface ServiceInterface {
 
+    @POST("api/v1/auth/register")
+    Call<User> registerUser(@Body User user);
+
     @GET("api/v1/add_services/{occupation}")
     Call <Main> getServices(@Path("occupation") String occupation);
 

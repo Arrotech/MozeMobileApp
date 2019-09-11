@@ -5,20 +5,19 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="8dp"
+    android:padding="10dp"
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tvAddService"
-        android:layout_width="match_parent"
-        android:layout_marginTop="40dp"
-        android:layout_height="wrap_content"
-        android:hint="Add Service"
-        android:textSize="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:padding="3dp"
         android:textColor="#000000"
-        android:textStyle="italic"
-        android:textAlignment="center"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_marginTop="20dp"
+        android:textStyle="bold"
+        android:textSize="50px"
+        android:layout_gravity="center_horizontal"
+        android:text="Add service"/>
 
     <EditText
         android:id="@+id/etPortfolio"

@@ -50,6 +50,9 @@ public class ViewServices extends AppCompatActivity {
             case R.id.view_services:
                 startActivity(new Intent(this, ViewServices.class));
                 return true;
+            case R.id.register:
+                startActivity(new Intent(this, Register.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
 

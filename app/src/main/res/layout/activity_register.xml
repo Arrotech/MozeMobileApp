@@ -107,7 +107,7 @@
             android:layout_height="35dp"
             android:padding="3dp"
             android:textColor="#000000"
-            android:text="Already registered?"/>
+            android:text="Already have an account?"/>
 
         <TextView
             android:id="@+id/tvLoginLink"

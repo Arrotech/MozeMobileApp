@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
-    package="com.example.moze">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:uses-permissionandroid="http://schemas.android.com/apk/res-auto"
+    package="com.example.moze"
+    tools:ignore="ExtraText">
 
     <dist:module dist:instant="true" />
 
@@ -13,11 +16,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Register"></activity>
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".Register" />
         <activity android:name=".Login" />
         <activity android:name=".ViewServices" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

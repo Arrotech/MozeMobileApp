@@ -1,30 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ViewServices">
 
-    <EditText
-        android:id="@+id/occupation_name"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:hint="Search for services" />
-    <Button
-        android:id="@+id/occupation_click"
-        android:layout_width="180dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/occupation_name"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="32dp"
-        android:text="Get Services" />
-    <TextView
-        android:id="@+id/response_text"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/occupation_click" />
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/tvViewServices"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#000" />
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

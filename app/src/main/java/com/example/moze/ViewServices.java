@@ -1,11 +1,17 @@
 package com.example.moze;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,6 +21,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -23,15 +31,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ViewServices extends AppCompatActivity {
 
-    private EditText editText;
-    private Button button;
-    private TextView responseText;
+    private TextView tvViewServices;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_services);
-        init();
+
+        tvViewServices = findViewById(R.id.tvViewServices);
+
+
+        getAllServices();
+
+
     }
 
     @Override
@@ -60,52 +72,42 @@ public class ViewServices extends AppCompatActivity {
 
     }
 
-    private void init() {
-        editText = findViewById(R.id.occupation_name);
-        button = findViewById(R.id.occupation_click);
-        responseText = findViewById(R.id.response_text);
-        button.setOnClickListener(new View.OnClickListener() {
+    @SuppressLint("RestrictedApi")
+    private void getAllServices(){
+
+        ServiceInterface serviceInterface = ServiceGenerator.createService(ServiceInterface.class);
+
+        Call<List<Service>> call = serviceInterface.getServices("Electrical");
+
+        call.enqueue(new Callback<List<Service>>() {
             @Override
-            public void onClick(View v) {
-                fetchServicesByOccupation();
-            }
-        });
-    }
+            public void onResponse(Call<List<Service>> call, Response<List<Service>> response) {
 
-    private void fetchServicesByOccupation() {
-        //Obtain an instance of Retrofit by calling the static method.
+                List<Service> services = response.body();
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://moze-api-endpoints.herokuapp.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
+                for(Service service: services){
 
-        ServiceInterface serviceInterface = retrofit.create(ServiceInterface.class);
+                    String content = "";
+                    content += "Occupation" + service.getOccupation() + "\n";
+                    content += "Phone" + service.getPhone() + "\n";
+                    content += "Location" + service.getLocation() + "\n";
+                    content += "Cost" + service.getCost() + "\n\n";
 
-        Call call = serviceInterface.getServices(editText.getText().toString());
+                    tvViewServices.append(content);
 
-        call.enqueue(new Callback() {
-            @SuppressLint("SetTextI18n")
-            @Override
-            public void onResponse(Call call, Response response) {
-
-                if (response.body() != null) {
-
-                    Main main = (Main) response.body();
-
-                    responseText.setText("Portfolio: " + main.getService().getPortfolio() + "\n " +
-                            "Occupation: " + main.getService().getOccupation() + "\n" +
-                            "Phone: " + main.getService().getPhone());
                 }
+
             }
 
             @Override
-            public void onFailure(Call call, Throwable t) {
+            public void onFailure(Call<List<Service>> call, Throwable t) {
 
-                Toast.makeText(ViewServices.this, "something went wrong :(", Toast.LENGTH_SHORT).show();
+                tvViewServices.setText(t.getMessage());
 
             }
         });
 
     }
+
+
 }

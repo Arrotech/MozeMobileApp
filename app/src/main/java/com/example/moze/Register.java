@@ -2,7 +2,9 @@ package com.example.moze;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -58,6 +60,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
                 userRegister(user);
                 break;
             case R.id.tvLoginLink:
+                Intent registerIntent = new Intent(Register.this, Login.class);
+                startActivity(registerIntent);
                 break;
 
         }
@@ -124,6 +128,8 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
 
                 Toast.makeText(Register.this, "Account created successfully", Toast.LENGTH_SHORT).show();
+                Intent registerIntent = new Intent(Register.this, MainActivity.class);
+                startActivity(registerIntent);
 
             }
 

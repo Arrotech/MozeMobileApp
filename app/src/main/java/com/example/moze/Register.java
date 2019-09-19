@@ -2,6 +2,7 @@ package com.example.moze;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
     private EditText firstname, lastname, phone, username,  email, password;
     Button bRegister;
     private TextView tvLoginLink;
+    private ProgressDialog pDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +69,24 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
         }
     }
 
+    private void showpDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hidepDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
     private void userRegister(User user){
+
+        pDialog = new ProgressDialog(Register.this);
+        pDialog.setIndeterminate(true);
+        pDialog.setMessage("Creating Account...");
+        pDialog.setCancelable(false);
+
+        showpDialog();
 
         String fname = firstname.getText().toString().trim();
         String lname = lastname.getText().toString().trim();
@@ -126,15 +145,19 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
 
+                hidepDialog();
+
 
                 Toast.makeText(Register.this, "Account created successfully", Toast.LENGTH_SHORT).show();
-                Intent registerIntent = new Intent(Register.this, MainActivity.class);
+                Intent registerIntent = new Intent(Register.this, Login.class);
                 startActivity(registerIntent);
 
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+
+                hidepDialog();
 
                 Toast.makeText(Register.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 

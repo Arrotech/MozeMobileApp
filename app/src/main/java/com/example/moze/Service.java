@@ -25,20 +25,20 @@ public class Service {
     @Expose
     private String location;
 
-    @SerializedName("img")
+    @SerializedName("working_hours")
     @Expose
-    private String img;
+    private String working_hours;
 
     @SerializedName("cost")
     @Expose
     private String cost;
 
-    public Service(String portfolio, String occupation, String phone, String location, String img, String cost) {
+    public Service(String portfolio, String occupation, String phone, String location, String working_hours, String cost) {
         this.portfolio = portfolio;
         this.occupation = occupation;
         this.phone = phone;
         this.location = location;
-        this.img = img;
+        this.working_hours = working_hours;
         this.cost = cost;
     }
 
@@ -62,8 +62,8 @@ public class Service {
         return location;
     }
 
-    public String getImg() {
-        return img;
+    public String getWorking_hours() {
+        return working_hours;
     }
 
     public String getCost() {

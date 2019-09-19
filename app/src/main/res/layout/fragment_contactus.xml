@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        android:hint="Message to: arrotechdesign@gmail.com"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/txtSubject"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Subject" />
+
+    <EditText
+        android:id="@+id/txtMessage"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="Message" />
+
+    <Button
+        android:id="@+id/btnOK"
+        android:background="@drawable/mybutton"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginBottom="6dp"
+        android:text="Send" />
+</LinearLayout>

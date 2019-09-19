@@ -1,5 +1,6 @@
 package com.example.moze;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import retrofit2.Call;
@@ -21,7 +21,8 @@ import retrofit2.Response;
 
 public class AddServiceFragment extends Fragment implements View.OnClickListener {
 
-    private EditText portfolio, occupation, phone, location, image, cost;
+    private EditText portfolio, occupation, phone, location, working_hours, cost;
+    private ProgressDialog pDialog;
     Button btnAdd;
 
     @Override
@@ -34,7 +35,7 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
         occupation = (EditText) add_view.findViewById(R.id.etOccupation);
         phone = (EditText) add_view.findViewById(R.id.etPhone);
         location = (EditText) add_view.findViewById(R.id.etLocation);
-        image = (EditText) add_view.findViewById(R.id.etImage);
+        working_hours = (EditText) add_view.findViewById(R.id.etWorkingHours);
         cost = (EditText) add_view.findViewById(R.id.etCost);
 
         btnAdd = (Button) add_view.findViewById(R.id.btnAdd);
@@ -44,6 +45,16 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
 
         return add_view;
 
+    }
+
+    private void showpDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
+
+    private void hidepDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
     }
 
     @Override
@@ -56,12 +67,6 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
 
-            case R.id.add_service:
-                startActivity(new Intent(getActivity(), MainActivity.class));
-                return true;
-            case R.id.view_services:
-                startActivity(new Intent(getActivity(), ViewServices.class));
-                return true;
             case R.id.register:
                 startActivity(new Intent(getActivity(), Register.class));
                 return true;
@@ -82,7 +87,7 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
                         occupation.getText().toString(),
                         phone.getText().toString(),
                         location.getText().toString(),
-                        image.getText().toString(),
+                        working_hours.getText().toString(),
                         cost.getText().toString()
                 );
                 addService(service);
@@ -93,11 +98,18 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
 
     private void addService(Service service){
 
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setIndeterminate(true);
+        pDialog.setMessage("Processing...");
+        pDialog.setCancelable(false);
+
+        showpDialog();
+
         String fname = portfolio.getText().toString().trim();
         String lname = occupation.getText().toString().trim();
         String phn = phone.getText().toString().trim();
         String uname = location.getText().toString().trim();
-        String eml = image.getText().toString().trim();
+        String eml = working_hours.getText().toString().trim();
         String pass = cost.getText().toString().trim();
 
         if (fname.isEmpty()) {
@@ -125,8 +137,8 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
         }
 
         if (eml.isEmpty()) {
-            image.setError("Email required");
-            image.requestFocus();
+            working_hours.setError("Email required");
+            working_hours.requestFocus();
             return;
         }
 
@@ -144,12 +156,16 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
             @Override
             public void onResponse(Call<Service> call, Response<Service> response) {
 
+                hidepDialog();
+
                 Toast.makeText(getActivity(), "You have added the service successfully", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onFailure(Call<Service> call, Throwable t) {
+
+                hidepDialog();
 
                 Toast.makeText(getActivity(), "something went wrong :(", Toast.LENGTH_SHORT).show();
 

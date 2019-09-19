@@ -1,38 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Space
-        android:id="@+id/spacer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_centerHorizontal="true"
-        android:visibility="invisible"/>
-
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="-162dp"
-        android:layout_toLeftOf="@+id/spacer"
-        android:drawableRight="@drawable/user"
-        android:hint="Login"
+        android:layout_marginTop="4dp"
         android:padding="10dp"
-        android:textSize="25dp" />
+        android:drawableLeft="@drawable/ic_search"
+        android:hint="Search by occupation" />
 
-    <SearchView
-        android:layout_marginTop="50dp"
-        android:id="@+id/search"
-        android:layout_width="fill_parent"
+    <Button
+        android:id="@+id/btnPay"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:iconifiedByDefault="false"
-        android:queryHint="Search by occupation">
+        android:background="#d65050"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:text="Online Payment"/>
 
-        <requestFocus />
-    </SearchView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvGetServices"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 
-</RelativeLayout>
+</LinearLayout>

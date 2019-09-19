@@ -1,9 +1,13 @@
 package com.example.moze;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,8 +21,9 @@ import retrofit2.Response;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    private EditText email, password;
+    private EditText etEmail, etPassword;
     Button bLogin;
+    private ProgressDialog pDialog;
     private TextView tvRegisterLink;
 
     @Override
@@ -26,8 +31,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        email = findViewById(R.id.etEmail);
-        password = findViewById(R.id.etPassword);
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
 
         bLogin = findViewById(R.id.bLogin);
 
@@ -42,11 +47,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
         switch (view.getId()){
             case R.id.bLogin:
-                UserLogin user = new UserLogin(
-                    email.getText().toString(),
-                    password.getText().toString()
-                );
-                userLogin(user);
+                userLogin();
                 break;
             case R.id.tvRegisterLink:
                 Intent loginIntent = new Intent(Login.this, Register.class);
@@ -56,50 +57,73 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     }
 
-    private void userLogin(UserLogin user){
+    private void showpDialog() {
+        if (!pDialog.isShowing())
+            pDialog.show();
+    }
 
-        String eml = email.getText().toString().trim();
-        String pass = password.getText().toString().trim();
+    private void hidepDialog() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
 
-        if(eml.isEmpty()){
-            email.setError("Email required");
-            email.requestFocus();
+    private void userLogin(){
+
+        pDialog = new ProgressDialog(Login.this);
+        pDialog.setIndeterminate(true);
+        pDialog.setMessage("Authenticating...");
+        pDialog.setCancelable(false);
+
+        showpDialog();
+
+        String email = etEmail.getText().toString().trim();
+        String password = etPassword.getText().toString().trim();
+
+
+        if(email.isEmpty()){
+            etEmail.setError("Email required");
+            etEmail.requestFocus();
             return;
         }
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(eml).matches()){
-            email.setError("Enter a valid email");
-            email.requestFocus();
+        if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
+            etEmail.setError("Enter a valid email");
+            etEmail.requestFocus();
             return;
         }
 
-        if(pass.isEmpty()){
-            email.setError("Password required");
-            email.requestFocus();
+        if(password.isEmpty()){
+            etPassword.setError("Password required");
+            etPassword.requestFocus();
             return;
         }
 
         ServiceInterface serviceInterface = ServiceGenerator.createService(ServiceInterface.class);
 
-        Call<UserLogin> call = serviceInterface.loginUser(user);
+        Call<LoginResponse> call = serviceInterface.loginUser(email, password);
 
-        call.enqueue(new Callback<UserLogin>() {
+        call.enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<UserLogin> call, Response<UserLogin> response) {
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
 
-                UserLogin user = response.body();
+                hidepDialog();
 
-                Toast.makeText(Login.this, user.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
 
+                Intent registerIntent = new Intent(Login.this, MainActivity.class);
+                startActivity(registerIntent);
             }
 
             @Override
-            public void onFailure(Call<UserLogin> call, Throwable t) {
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
 
-                Toast.makeText(Login.this, "something went wrong :(", Toast.LENGTH_SHORT).show();
+                hidepDialog();
+
+                Toast.makeText(Login.this, "Something went wrong", Toast.LENGTH_SHORT).show();
 
             }
         });
+
 
     }
 }

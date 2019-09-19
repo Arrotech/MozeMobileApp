@@ -9,8 +9,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
@@ -21,8 +23,10 @@ import retrofit2.Response;
 
 public class AddServiceFragment extends Fragment implements View.OnClickListener {
 
-    private EditText portfolio, occupation, phone, location, working_hours, cost;
+    private EditText etOccupation, etPhone, etLocation, etWorkingHours, etCost;
+    private Spinner spPortfolio;
     private ProgressDialog pDialog;
+    private static final String[] paths = {"Education", "Health", "Technical", "Entertainment", "Domestic"};
     Button btnAdd;
 
     @Override
@@ -31,14 +35,19 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
         View add_view = inflater.inflate(R.layout.fragment_add, container, false);
         setHasOptionsMenu(true);
 
-        portfolio = (EditText) add_view.findViewById(R.id.etPortfolio);
-        occupation = (EditText) add_view.findViewById(R.id.etOccupation);
-        phone = (EditText) add_view.findViewById(R.id.etPhone);
-        location = (EditText) add_view.findViewById(R.id.etLocation);
-        working_hours = (EditText) add_view.findViewById(R.id.etWorkingHours);
-        cost = (EditText) add_view.findViewById(R.id.etCost);
-
+        spPortfolio = (Spinner) add_view.findViewById(R.id.spPortfolio);
+        etOccupation = (EditText) add_view.findViewById(R.id.etOccupation);
+        etPhone = (EditText) add_view.findViewById(R.id.etPhone);
+        etLocation = (EditText) add_view.findViewById(R.id.etLocation);
+        etWorkingHours = (EditText) add_view.findViewById(R.id.etWorkingHours);
+        etCost = (EditText) add_view.findViewById(R.id.etCost);
         btnAdd = (Button) add_view.findViewById(R.id.btnAdd);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item,paths);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spPortfolio.setAdapter(adapter);
 
         btnAdd.setOnClickListener(this);
 
@@ -82,14 +91,13 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
         switch (view.getId()) {
 
             case R.id.btnAdd:
-                Service service = new Service(
-                        portfolio.getText().toString(),
-                        occupation.getText().toString(),
-                        phone.getText().toString(),
-                        location.getText().toString(),
-                        working_hours.getText().toString(),
-                        cost.getText().toString()
-                );
+                String sp_portfolio = spPortfolio.getSelectedItem().toString();
+                String occupation = etOccupation.getText().toString();
+                String phone = etPhone.getText().toString();
+                String location = etLocation.getText().toString();
+                String working_hours = etWorkingHours.getText().toString();
+                String cost = etCost.getText().toString();
+                Service service = new Service(sp_portfolio, occupation, phone, location, working_hours, cost);
                 addService(service);
                 break;
 
@@ -105,46 +113,40 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
 
         showpDialog();
 
-        String fname = portfolio.getText().toString().trim();
-        String lname = occupation.getText().toString().trim();
-        String phn = phone.getText().toString().trim();
-        String uname = location.getText().toString().trim();
-        String eml = working_hours.getText().toString().trim();
-        String pass = cost.getText().toString().trim();
+        String occupation = etOccupation.getText().toString().trim();
+        String phone = etPhone.getText().toString().trim();
+        String location = etLocation.getText().toString().trim();
+        String working_hours = etWorkingHours.getText().toString().trim();
+        String cost = etCost.getText().toString().trim();
 
-        if (fname.isEmpty()) {
-            portfolio.setError("First name required");
-            portfolio.requestFocus();
+
+        if (occupation.isEmpty()) {
+            etOccupation.setError("Last name required");
+            etOccupation.requestFocus();
             return;
         }
 
-        if (lname.isEmpty()) {
-            occupation.setError("Last name required");
-            occupation.requestFocus();
+        if (phone.isEmpty()) {
+            etPhone.setError("Phone number required");
+            etPhone.requestFocus();
             return;
         }
 
-        if (phn.isEmpty()) {
-            phone.setError("Phone number required");
-            phone.requestFocus();
+        if (location.isEmpty()) {
+            etLocation.setError("Username required");
+            etLocation.requestFocus();
             return;
         }
 
-        if (uname.isEmpty()) {
-            location.setError("Username required");
-            location.requestFocus();
+        if (working_hours.isEmpty()) {
+            etWorkingHours.setError("Email required");
+            etWorkingHours.requestFocus();
             return;
         }
 
-        if (eml.isEmpty()) {
-            working_hours.setError("Email required");
-            working_hours.requestFocus();
-            return;
-        }
-
-        if (pass.isEmpty()) {
-            cost.setError("Password required");
-            cost.requestFocus();
+        if (cost.isEmpty()) {
+            etCost.setError("Password required");
+            etCost.requestFocus();
             return;
         }
 

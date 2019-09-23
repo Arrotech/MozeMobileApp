@@ -81,13 +81,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
 
     private void userRegister(User user){
 
-        pDialog = new ProgressDialog(Register.this);
-        pDialog.setIndeterminate(true);
-        pDialog.setMessage("Creating Account...");
-        pDialog.setCancelable(false);
-
-        showpDialog();
-
         String fname = firstname.getText().toString().trim();
         String lname = lastname.getText().toString().trim();
         String phn = phone.getText().toString().trim();
@@ -136,6 +129,13 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             password.requestFocus();
             return;
         }
+
+        pDialog = new ProgressDialog(Register.this);
+        pDialog.setIndeterminate(true);
+        pDialog.setMessage("Creating Account...");
+        pDialog.setCancelable(false);
+
+        showpDialog();
 
         ServiceInterface serviceInterface = ServiceGenerator.createService(ServiceInterface.class);
 

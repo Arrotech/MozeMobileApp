@@ -35,6 +35,8 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
         holder.tvRPortfolio.setText(service.getPortfolio());
         holder.tvROccupation.setText(service.getOccupation());
+        holder.tvRBusinessName.setText(service.getBusiness_name());
+        holder.tvRDescription.setText(service.getDescription());
         holder.tvRLocation.setText(service.getLocation());
         holder.tvRWorking_hours.setText(service.getWorking_hours());
         holder.tvRPhone.setText(service.getPhone());
@@ -49,13 +51,15 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
     class ServicesViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tvRPortfolio, tvROccupation, tvRLocation, tvRWorking_hours, tvRPhone, tvRCost;
+        TextView tvRBusinessName, tvRDescription, tvRPortfolio, tvROccupation, tvRLocation, tvRWorking_hours, tvRPhone, tvRCost;
 
         public ServicesViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvRPortfolio = itemView.findViewById(R.id.tvRPortfolio);
             tvROccupation = itemView.findViewById(R.id.tvROccupation);
+            tvRBusinessName = itemView.findViewById(R.id.tvRBusinessName);
+            tvRDescription = itemView.findViewById(R.id.tvRDescription);
             tvRLocation = itemView.findViewById(R.id.tvRLocation);
             tvRWorking_hours = itemView.findViewById(R.id.tvRWorking_hours);
             tvRPhone = itemView.findViewById(R.id.tvRPhone);

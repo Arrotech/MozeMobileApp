@@ -23,10 +23,11 @@ import retrofit2.Response;
 
 public class AddServiceFragment extends Fragment implements View.OnClickListener {
 
-    private EditText etOccupation, etPhone, etLocation, etWorkingHours, etCost;
-    private Spinner spPortfolio;
+    private EditText etName, etBusinessName, etDescription, etPhone, etLocation, etWorkingHours, etCost;
+    private Spinner spPortfolio, spOccupation;
     private ProgressDialog pDialog;
-    private static final String[] paths = {"Education", "Health", "Technical", "Entertainment", "Domestic"};
+    String[] portfolio = {"Education", "Health", "Technical", "Entertainment", "Domestic"};
+    String[] occupation = {"Carpentry", "Music", "Foods & Drinks", "Electrician", "Computer Services", "Mechanic", "Teacher", "Gym", "Transport Services", "Farming Services", "Doctor"};
     Button btnAdd;
 
     @Override
@@ -35,8 +36,11 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
         View add_view = inflater.inflate(R.layout.fragment_add, container, false);
         setHasOptionsMenu(true);
 
+        etName = (EditText) add_view.findViewById(R.id.etName);
+        etBusinessName = (EditText) add_view.findViewById(R.id.etBusinessName);
         spPortfolio = (Spinner) add_view.findViewById(R.id.spPortfolio);
-        etOccupation = (EditText) add_view.findViewById(R.id.etOccupation);
+        spOccupation = (Spinner) add_view.findViewById(R.id.spOccupation);
+        etDescription = (EditText) add_view.findViewById(R.id.etDescription);
         etPhone = (EditText) add_view.findViewById(R.id.etPhone);
         etLocation = (EditText) add_view.findViewById(R.id.etLocation);
         etWorkingHours = (EditText) add_view.findViewById(R.id.etWorkingHours);
@@ -44,10 +48,14 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
         btnAdd = (Button) add_view.findViewById(R.id.btnAdd);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-                android.R.layout.simple_spinner_item,paths);
-
+                android.R.layout.simple_spinner_item,portfolio);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spPortfolio.setAdapter(adapter);
+
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getActivity(),
+                android.R.layout.simple_spinner_item,occupation);
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spOccupation.setAdapter(adapter2);
 
         btnAdd.setOnClickListener(this);
 
@@ -91,13 +99,16 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
         switch (view.getId()) {
 
             case R.id.btnAdd:
-                String sp_portfolio = spPortfolio.getSelectedItem().toString();
-                String occupation = etOccupation.getText().toString();
+                String name = etName.getText().toString();
+                String business_name = etBusinessName.getText().toString();
+                String portfolio = spPortfolio.getSelectedItem().toString();
+                String occupation = spOccupation.getSelectedItem().toString();
+                String description = etDescription.getText().toString();
                 String phone = etPhone.getText().toString();
                 String location = etLocation.getText().toString();
                 String working_hours = etWorkingHours.getText().toString();
                 String cost = etCost.getText().toString();
-                Service service = new Service(sp_portfolio, occupation, phone, location, working_hours, cost);
+                Service service = new Service(name, business_name, portfolio, occupation, description, phone, location, working_hours, cost);
                 addService(service);
                 break;
 
@@ -106,23 +117,29 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
 
     private void addService(Service service){
 
-        pDialog = new ProgressDialog(getActivity());
-        pDialog.setIndeterminate(true);
-        pDialog.setMessage("Processing...");
-        pDialog.setCancelable(false);
-
-        showpDialog();
-
-        String occupation = etOccupation.getText().toString().trim();
+        String name = etName.getText().toString().trim();
+        String business_name = etBusinessName.getText().toString().trim();
+        String description = etDescription.getText().toString().trim();
         String phone = etPhone.getText().toString().trim();
         String location = etLocation.getText().toString().trim();
         String working_hours = etWorkingHours.getText().toString().trim();
         String cost = etCost.getText().toString().trim();
 
+        if (name.isEmpty()) {
+            etName.setError("Name required");
+            etName.requestFocus();
+            return;
+        }
 
-        if (occupation.isEmpty()) {
-            etOccupation.setError("Last name required");
-            etOccupation.requestFocus();
+        if (business_name.isEmpty()) {
+            etBusinessName.setError("Business name required");
+            etBusinessName.requestFocus();
+            return;
+        }
+
+        if (description.isEmpty()) {
+            etDescription.setError("Description required");
+            etDescription.requestFocus();
             return;
         }
 
@@ -149,6 +166,13 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
             etCost.requestFocus();
             return;
         }
+
+        pDialog = new ProgressDialog(getActivity());
+        pDialog.setIndeterminate(true);
+        pDialog.setMessage("Processing...");
+        pDialog.setCancelable(false);
+
+        showpDialog();
 
         ServiceInterface serviceInterface = ServiceGenerator.createService(ServiceInterface.class);
 

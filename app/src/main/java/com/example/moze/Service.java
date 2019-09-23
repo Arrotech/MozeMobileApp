@@ -9,6 +9,14 @@ public class Service {
     @Expose
     private Integer service_id;
 
+    @SerializedName("name")
+    @Expose
+    private String name;
+
+    @SerializedName("business_name")
+    @Expose
+    private String business_name;
+
     @SerializedName("portfolio")
     @Expose
     private String portfolio;
@@ -16,6 +24,10 @@ public class Service {
     @SerializedName("occupation")
     @Expose
     private String occupation;
+
+    @SerializedName("description")
+    @Expose
+    private String description;
 
     @SerializedName("phone")
     @Expose
@@ -33,9 +45,12 @@ public class Service {
     @Expose
     private String cost;
 
-    public Service(String portfolio, String occupation, String phone, String location, String working_hours, String cost) {
+    public Service(String name, String business_name, String portfolio, String occupation, String description, String phone, String location, String working_hours, String cost) {
+        this.name = name;
+        this.business_name = business_name;
         this.portfolio = portfolio;
         this.occupation = occupation;
+        this.description = description;
         this.phone = phone;
         this.location = location;
         this.working_hours = working_hours;
@@ -68,5 +83,17 @@ public class Service {
 
     public String getCost() {
         return cost;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBusiness_name() {
+        return business_name;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

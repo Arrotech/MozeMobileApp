@@ -69,13 +69,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
     private void userLogin(){
 
-        pDialog = new ProgressDialog(Login.this);
-        pDialog.setIndeterminate(true);
-        pDialog.setMessage("Authenticating...");
-        pDialog.setCancelable(false);
-
-        showpDialog();
-
         String email = etEmail.getText().toString().trim();
         String password = etPassword.getText().toString().trim();
 
@@ -97,6 +90,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             etPassword.requestFocus();
             return;
         }
+
+        pDialog = new ProgressDialog(Login.this);
+        pDialog.setIndeterminate(true);
+        pDialog.setMessage("Authenticating...");
+        pDialog.setCancelable(false);
+
+        showpDialog();
 
         ServiceInterface serviceInterface = ServiceGenerator.createService(ServiceInterface.class);
 

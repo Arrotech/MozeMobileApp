@@ -55,6 +55,18 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/tvRSocialLink"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:textStyle="normal"
+                android:text="Website link"
+                android:drawableLeft="@drawable/ic_website"
+                android:autoLink="web"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/tvRDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,17 +107,32 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF" />
 
-            <TextView
-                android:id="@+id/tvRCost"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:drawableLeft="@drawable/ic_money"
-                android:padding="4dp"
-                android:text="Cost"
-                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textSize="20sp" />
+                android:layout_height="match_parent">
 
+                <TextView
+                    android:id="@+id/tvRCost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:drawableLeft="@drawable/ic_money"
+                    android:padding="4dp"
+                    android:textStyle="bold"
+                    android:text="Cost"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                    android:textSize="20sp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRCheckout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#fff"
+                    android:background="@drawable/mybutton"
+                    android:text="CHECKOUT"/>
+
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

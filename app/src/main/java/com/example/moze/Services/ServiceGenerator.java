@@ -1,4 +1,4 @@
-package com.example.moze;
+package com.example.moze.Services;
 
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;

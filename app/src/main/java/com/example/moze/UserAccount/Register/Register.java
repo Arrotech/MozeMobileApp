@@ -1,4 +1,4 @@
-package com.example.moze;
+package com.example.moze.UserAccount.Register;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,8 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moze.UserAccount.Login.Login;
+import com.example.moze.R;
 import com.example.moze.Services.ServiceGenerator;
 import com.example.moze.Services.interfaces.ServiceInterface;
+import com.example.moze.UserAccount.Model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;

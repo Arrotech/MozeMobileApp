@@ -1,4 +1,4 @@
-package com.example.moze;
+package com.example.moze.UserAccount.Model;
 
 public class LoginResponse {
 

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity"
+    tools:context=".AppSettings.MainActivity"
     tools:openDrawer="start">
 
     <LinearLayout
@@ -27,6 +27,8 @@
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
+
 
     </LinearLayout>
 

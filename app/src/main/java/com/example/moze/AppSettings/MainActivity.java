@@ -1,4 +1,4 @@
-package com.example.moze;
+package com.example.moze.AppSettings;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -11,9 +11,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.moze.ContactUs.ContactUsFragment;
+import com.example.moze.R;
 import com.example.moze.Services.AddServices.AddServiceFragment;
 import com.example.moze.Services.ViewServices.ViewServicesByLocation;
 import com.example.moze.Services.ViewServices.ViewServicesFragment;
+import com.example.moze.Settings.SettingsFragment;
 import com.example.moze.UserAccount.Login.Login;
 import com.google.android.material.navigation.NavigationView;
 
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

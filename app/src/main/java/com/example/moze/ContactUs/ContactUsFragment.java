@@ -1,4 +1,4 @@
-package com.example.moze;
+package com.example.moze.ContactUs;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.fragment.app.Fragment;
+
+import com.example.moze.R;
 
 public class ContactUsFragment extends Fragment implements View.OnClickListener {
 

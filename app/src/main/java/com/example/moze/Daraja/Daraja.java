@@ -1,5 +1,6 @@
 package com.example.moze.Daraja;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -19,7 +20,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class Daraja {
-
     private String BASE_URL;
     private String CONSUMER_KEY;
     private String CONSUMER_SECRET;

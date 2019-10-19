@@ -1,4 +1,4 @@
-package com.example.moze;
+package com.example.moze.AppSettings;
 
 public class Config {
 

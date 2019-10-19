@@ -1,10 +1,12 @@
-package com.example.moze;
+package com.example.moze.PayPal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.example.moze.R;
 
 import org.json.JSONException;
 import org.json.JSONObject;

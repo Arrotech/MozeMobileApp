@@ -2,4 +2,31 @@
     <string name="app_name">Moze</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_checkout">Checkout</string>
+    <string name="checkout">Checkout</string>
+    <string name="clear_cart">Clear Cart"</string>
+
+    <!-- String placeholders-->
+    <string name="checkout_dialog_title">Enter Customer\'s Safaricom phone number to checkout</string>
+    <string name="checkout_value">clear_cart</string>
+
+    <!-- Dialog Titles -->
+    <string name="title_success">Payment Notification</string>
+    <string name="title_wait">Please Wait</string>
+
+    <!-- Dialog Messages-->
+    <string name="dialog_message_success">Payment made successfully</string>
+    <string name="dialog_message_processing">Processing…</string>
+
+    <!-- Hints -->
+    <string name="hint_phone_number">07xxxxxxxx</string>
+
+    <string name="on_failure">MPESAExpress Failed</string>
+    <string name="authentication_failed">Authentication Failed</string>
+    <string name="not_authenticated">Not Authenticated</string>
+
+    <string name="enter_phone_number">Enter Phone Number</string>
+    <string name="request_mpesaexpress">Request MPESAExpress</string>
+
+
 </resources>

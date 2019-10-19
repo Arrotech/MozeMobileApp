@@ -1,4 +1,4 @@
-package com.example.moze.Services.SplashScreens;
+package com.example.moze.SplashScreens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,7 +21,7 @@ public class HomeActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run(){
-                Intent homeIntent = new Intent(HomeActivity.this, MainActivity.class);
+                Intent homeIntent = new Intent(HomeActivity.this, GettingStartedActivity3.class);
                 startActivity(homeIntent);
                 finish();
             }

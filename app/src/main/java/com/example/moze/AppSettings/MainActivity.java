@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import com.example.moze.ContactUs.ContactUsFragment;
 import com.example.moze.R;
 import com.example.moze.Services.AddServices.AddServiceFragment;
+import com.example.moze.Services.ViewServices.DeleteService;
 import com.example.moze.Services.ViewServices.ViewServicesByLocation;
 import com.example.moze.Services.ViewServices.ViewServicesFragment;
 import com.example.moze.Settings.SettingsFragment;

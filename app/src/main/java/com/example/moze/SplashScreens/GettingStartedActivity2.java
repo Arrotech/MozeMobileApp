@@ -13,7 +13,7 @@ import com.example.moze.R;
 
 public class GettingStartedActivity2 extends AppCompatActivity implements  View.OnClickListener {
 
-    ImageView btnGettingStarted2;
+    ImageView btnGettingStarted2, btnGettingStartedBack2;
     TextView tvSplash2;
 
     @Override
@@ -22,9 +22,11 @@ public class GettingStartedActivity2 extends AppCompatActivity implements  View.
         setContentView(R.layout.activity_getting_started2);
 
         btnGettingStarted2 = (ImageView) findViewById(R.id.btnGettingStarted2);
+        btnGettingStartedBack2 = (ImageView) findViewById(R.id.btnGettingStartedBack2);
         tvSplash2 = (TextView) findViewById(R.id.tvSplash2);
 
         btnGettingStarted2.setOnClickListener(this);
+        btnGettingStartedBack2.setOnClickListener(this);
         tvSplash2.setOnClickListener(this);
     }
 
@@ -34,6 +36,10 @@ public class GettingStartedActivity2 extends AppCompatActivity implements  View.
             case R.id.btnGettingStarted2:
                 Intent mainActivityIntent = new Intent(GettingStartedActivity2.this, MainActivity.class);
                 startActivity(mainActivityIntent);
+                break;
+            case R.id.btnGettingStartedBack2:
+                Intent onbackpressed2 = new Intent(GettingStartedActivity2.this, GettingStartedActivity.class);
+                startActivity(onbackpressed2);
                 break;
             case R.id.tvSplash2:
                 Intent mainActivityIntent2 = new Intent(GettingStartedActivity2.this, MainActivity.class);

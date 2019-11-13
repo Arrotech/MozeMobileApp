@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.moze.Checkout;
+import com.example.moze.PayPal.PayPalPayments;
 import com.example.moze.R;
 import com.example.moze.Services.model.Service;
 
@@ -52,7 +52,7 @@ public class ServiceListAdapter extends RecyclerView.Adapter<ServiceListAdapter.
         holder.btnRCheckout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mCtx, Checkout.class);
+                Intent intent = new Intent(mCtx, PayPalPayments.class);
                 mCtx.startActivity(intent);
             }
         });

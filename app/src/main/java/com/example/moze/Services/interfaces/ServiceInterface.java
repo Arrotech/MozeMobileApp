@@ -9,6 +9,7 @@ import com.example.moze.UserAccount.Model.User;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -25,6 +26,9 @@ public interface ServiceInterface {
     Call<ServiceResponse> getServices(
             @Path("occupation") String serviceOccupation
     );
+
+    @DELETE("api/v1/add_services/{service_id}")
+    Call<Void> deleteService(@Path("service_id") int service_id);
 
     @GET("api/v1/add_services/{occupation}/{location}")
     Call<ServiceList> getServicesLocation(

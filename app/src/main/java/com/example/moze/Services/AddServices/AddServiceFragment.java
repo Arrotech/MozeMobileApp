@@ -17,10 +17,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.moze.PayPal.PayPalPayments;
-import com.example.moze.PayPal.ServiceFeeCheckout;
 import com.example.moze.R;
-import com.example.moze.UserAccount.Login.Login;
 import com.example.moze.UserAccount.Register.Register;
 import com.example.moze.Services.model.Service;
 import com.example.moze.Services.ServiceGenerator;
@@ -238,8 +235,6 @@ public class AddServiceFragment extends Fragment implements View.OnClickListener
                 if(response.isSuccessful()){
 
                     Toast.makeText(getActivity(), "You have added the service successfully", Toast.LENGTH_SHORT).show();
-                    Intent loginIntent = new Intent(getActivity(), ServiceFeeCheckout.class);
-                    startActivity(loginIntent);
 
                 }else{
 

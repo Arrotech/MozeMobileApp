@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="#1569C7"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -9,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingLeft="24dp"
-        android:paddingTop="56dp"
+        android:paddingTop="40dp"
         android:paddingRight="24dp">
 
 
@@ -17,110 +19,152 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:fontFamily="@font/mmedium"
             android:gravity="center"
-            android:textStyle="italic"
-            android:text="Create a new account"
-            android:textSize="25dp" />
+            android:text="arrotech"
+            android:textColor="#f1f1f1"
+            android:textSize="40dp" />
 
-        <com.google.android.material.textfield.TextInputLayout            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="#f1f1f1"
+            app:hintTextColor="#f1f1f1">
 
             <EditText
                 android:id="@+id/etFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/mlight"
                 android:hint="First Name"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:textColor="#f1f1f1" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="#f1f1f1"
+            app:hintTextColor="#f1f1f1">
 
             <EditText
                 android:id="@+id/etLastName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/mlight"
                 android:hint="Last Name"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:textColor="#f1f1f1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="#f1f1f1"
+            app:endIconDrawable="@drawable/ic_phone"
+            app:endIconMode="custom"
+            app:endIconTint="#f1f1f1"
+            app:hintTextColor="#f1f1f1">
 
             <EditText
                 android:id="@+id/etPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/mlight"
                 android:hint="Phone"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:textColor="#f1f1f1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="#f1f1f1"
+            app:endIconDrawable="@drawable/user"
+            app:endIconMode="custom"
+            app:endIconTint="#f1f1f1"
+            app:hintTextColor="#f1f1f1">
 
             <EditText
                 android:id="@+id/etUsername"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/mlight"
                 android:hint="Username"
-                android:inputType="textCapWords" />
+                android:inputType="textCapWords"
+                android:textColor="#f1f1f1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="#f1f1f1"
+            app:endIconDrawable="@drawable/ic_email"
+            app:endIconMode="custom"
+            app:endIconTint="#f1f1f1"
+            app:hintTextColor="#f1f1f1">
 
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/mlight"
                 android:hint="Email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="#f1f1f1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginBottom="8dp"
+            android:textColorHint="#f1f1f1"
+            app:endIconMode="password_toggle"
+            app:endIconTint="#f1f1f1"
+            app:hintTextColor="#f1f1f1">
 
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/mlight"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="#f1f1f1" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bRegister"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="14dp"
             android:layout_marginBottom="24dp"
             android:background="@drawable/mybutton"
+            android:fontFamily="@font/mmedium"
             android:padding="12dp"
-            android:text="Create Account"/>
+            android:text="Create Account"
+            android:textColor="#f1f1f1" />
 
         <TextView
             android:id="@+id/tvLoginLink"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
+            android:fontFamily="@font/mlight"
             android:gravity="center"
             android:text="Already a member? Login"
+            android:textColor="#f1f1f1"
             android:textSize="16dip" />
 
     </LinearLayout>

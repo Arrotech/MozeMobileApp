@@ -28,43 +28,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_business"
-                android:textStyle="bold"
                 android:padding="4dp"
                 android:text="Business Name"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvRPortfolio"
-                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="2dp"
                 android:text="Portfolio"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvROccupation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="2dp"
-                android:textStyle="bold"
                 android:text="Occupation"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tvRSocialLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:textStyle="normal"
-                android:text="Website link"
-                android:drawableLeft="@drawable/ic_website"
                 android:autoLink="web"
+                android:drawableLeft="@drawable/ic_website"
+                android:padding="4dp"
+                android:text="Website link"
                 android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:textColor="#357EC7"
+                android:textStyle="normal" />
 
             <TextView
                 android:id="@+id/tvRDescription"
@@ -89,48 +90,45 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_watch"
-                android:textStyle="bold"
                 android:padding="4dp"
                 android:text="Working hours"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvRPhone"
-                android:layout_width="wrap_content"
+                android:id="@+id/tvRCost"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:autoLink="phone"
-                android:background="@drawable/mybutton2"
-                android:drawableLeft="@drawable/ic_phone"
-                android:linksClickable="true"
-                android:padding="5dp"
-                android:text="Phone"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textColor="#FFFFFF" />
+                android:clickable="true"
+                android:drawableLeft="@drawable/ic_money"
+                android:padding="4dp"
+                android:text="Cost"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/tvRCost"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:clickable="true"
-                    android:drawableLeft="@drawable/ic_money"
-                    android:padding="4dp"
-                    android:textStyle="bold"
-                    android:text="Cost"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                    android:textSize="20sp" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/btnRCheckout"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#fff"
-                    android:background="@drawable/mybutton"
-                    android:text="CHECKOUT"/>
+                    android:text="CHECKOUT"
+                    android:textColor="#357EC7"
+                    style="?attr/borderlessButtonStyle"/>
+
+                <TextView
+                    android:id="@+id/tvRPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="phone"
+                    android:linksClickable="true"
+                    android:padding="5dp"
+                    android:text="Phone"
+                    android:textColor="#357EC7" />
 
             </LinearLayout>
 

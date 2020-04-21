@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.moze.AppSettings.MainActivity;
 import com.example.moze.R;
+import com.example.moze.UserAccount.Register.Register;
 
 public class GettingStartedActivity extends AppCompatActivity implements  View.OnClickListener {
 
@@ -43,7 +44,7 @@ public class GettingStartedActivity extends AppCompatActivity implements  View.O
                 startActivity(onbackpressed);
                 break;
             case R.id.tvSplash:
-                Intent mainActivityIntent2 = new Intent(GettingStartedActivity.this, MainActivity.class);
+                Intent mainActivityIntent2 = new Intent(GettingStartedActivity.this, Register.class);
                 startActivity(mainActivityIntent2);
                 break;
         }

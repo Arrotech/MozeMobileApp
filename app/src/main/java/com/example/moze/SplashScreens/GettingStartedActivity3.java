@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.moze.AppSettings.MainActivity;
 import com.example.moze.R;
+import com.example.moze.UserAccount.Register.Register;
 
 public class GettingStartedActivity3 extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,7 +37,7 @@ public class GettingStartedActivity3 extends AppCompatActivity implements View.O
                 startActivity(gettingStartedActivity);
                 break;
             case R.id.tvSplash3:
-                Intent gettingStartedActivity2 = new Intent(GettingStartedActivity3.this, MainActivity.class);
+                Intent gettingStartedActivity2 = new Intent(GettingStartedActivity3.this, Register.class);
                 startActivity(gettingStartedActivity2);
                 break;
         }

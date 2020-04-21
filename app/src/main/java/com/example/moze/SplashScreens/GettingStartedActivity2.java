@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.moze.AppSettings.MainActivity;
 import com.example.moze.R;
+import com.example.moze.UserAccount.Register.Register;
 
 public class GettingStartedActivity2 extends AppCompatActivity implements  View.OnClickListener {
 
@@ -34,7 +35,7 @@ public class GettingStartedActivity2 extends AppCompatActivity implements  View.
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnGettingStarted2:
-                Intent mainActivityIntent = new Intent(GettingStartedActivity2.this, MainActivity.class);
+                Intent mainActivityIntent = new Intent(GettingStartedActivity2.this, Register.class);
                 startActivity(mainActivityIntent);
                 break;
             case R.id.btnGettingStartedBack2:
@@ -42,7 +43,7 @@ public class GettingStartedActivity2 extends AppCompatActivity implements  View.
                 startActivity(onbackpressed2);
                 break;
             case R.id.tvSplash2:
-                Intent mainActivityIntent2 = new Intent(GettingStartedActivity2.this, MainActivity.class);
+                Intent mainActivityIntent2 = new Intent(GettingStartedActivity2.this, Register.class);
                 startActivity(mainActivityIntent2);
                 break;
         }

@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ServiceGenerator {
 
-    private static final String BASE_URL = "https://moze-api-endpoints.herokuapp.com/";
+    private static final String BASE_URL = "https://arrotech-services-app.herokuapp.com/";
 
     private static Retrofit.Builder builder
             = new Retrofit.Builder()

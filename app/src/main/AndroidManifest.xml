@@ -23,19 +23,19 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".SplashScreens.GettingStartedActivity3"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashScreens.GettingStartedActivity2"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashScreens.GettingStartedActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SplashScreens.HomeActivity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,8 +46,13 @@
         <activity android:name=".Daraja.MpesaAPI" />
         <activity android:name=".PayPal.PaymentDetails" />
         <activity android:name=".PayPal.PayPalPayments" />
-        <activity android:name=".UserAccount.Register.Register" />
-        <activity android:name=".UserAccount.Login.Login" />
+        <activity
+            android:name=".UserAccount.Register.Register"
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+        <activity
+            android:name=".UserAccount.Login.Login"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".AppSettings.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />

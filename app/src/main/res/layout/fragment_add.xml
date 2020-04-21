@@ -2,6 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#357EC7"
     android:fitsSystemWindows="true">
 
     <LinearLayout
@@ -18,19 +20,24 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:gravity="center"
-            android:text="Add Services"
-            android:textSize="25dp"
-            android:textStyle="italic" />
+            android:fontFamily="@font/mmedium"
+            android:textColor="#f1f1f1"
+            android:text="add service"
+            android:textSize="40dp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColorHint="#f1f1f1"
+            app:hintTextColor="#f1f1f1"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
             <EditText
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/mlight"
+                android:textColor="#f1f1f1"
                 android:layout_height="wrap_content"
                 android:hint="Full Name"
                 android:inputType="textCapWords" />
@@ -40,12 +47,16 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="#f1f1f1"
+            android:textColorHint="#f1f1f1"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
             <EditText
                 android:id="@+id/etBusinessName"
                 android:layout_width="match_parent"
+                android:fontFamily="@font/mlight"
+                android:textColor="#f1f1f1"
                 android:layout_height="wrap_content"
                 android:hint="Business Name"
                 android:inputType="textCapWords" />
@@ -54,6 +65,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="#f1f1f1"
+            android:textColorHint="#f1f1f1"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
@@ -80,6 +93,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="#f1f1f1"
+            android:textColorHint="#f1f1f1"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
@@ -87,6 +102,8 @@
                 android:id="@+id/etSocialLink"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#f1f1f1"
+                android:fontFamily="@font/mlight"
                 android:hint="Website or Social Link"
                 android:inputType="textCapWords"/>
 
@@ -95,6 +112,8 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="#f1f1f1"
+            android:textColorHint="#f1f1f1"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
@@ -103,8 +122,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="textMultiLine"
+                android:textColor="#f1f1f1"
+                android:fontFamily="@font/mlight"
                 android:gravity="left|top"
-                android:hint="Service description..."
+                android:hint="Service description"
                 android:lines="6"
                 android:maxLines="8"
                 android:scrollbars="vertical"/>
@@ -114,12 +135,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textColorHint="#f1f1f1"
+            app:hintTextColor="#f1f1f1"
             android:layout_marginBottom="8dp">
 
             <EditText
                 android:id="@+id/etPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColor="#f1f1f1"
+                android:fontFamily="@font/mlight"
                 android:hint="Phone"
                 android:inputType="textCapWords" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -140,12 +165,16 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="#f1f1f1"
+            android:textColorHint="#f1f1f1"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
             <EditText
                 android:id="@+id/etWorkingHours"
                 android:layout_width="match_parent"
+                android:textColor="#f1f1f1"
+                android:fontFamily="@font/mlight"
                 android:layout_height="wrap_content"
                 android:hint="Working hours"
                 android:inputType="textCapWords" />
@@ -154,12 +183,16 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:hintTextColor="#f1f1f1"
+            android:textColorHint="#f1f1f1"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp">
 
             <EditText
                 android:id="@+id/etCost"
                 android:layout_width="match_parent"
+                android:textColor="#f1f1f1"
+                android:fontFamily="@font/mlight"
                 android:layout_height="wrap_content"
                 android:hint="Cost"
                 android:inputType="textCapWords" />
@@ -170,6 +203,8 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:textColor="#f1f1f1"
+            android:fontFamily="@font/mmedium"
             android:layout_marginBottom="24dp"
             android:background="@drawable/mybutton"
             android:padding="12dp"

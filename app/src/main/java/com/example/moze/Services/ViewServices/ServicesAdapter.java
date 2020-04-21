@@ -67,7 +67,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
 
     class ServicesViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvRBusinessName, tvRDescription, tvRPortfolio, tvROccupation, tvRSocialLink, tvRLocation, tvRWorking_hours, tvRPhone, tvRCost;
+        TextView tvRBusinessName, tvRDescription, tvRPortfolio, tvROccupation, tvRSocialLink, tvRLocation, tvRWorking_hours, tvRCost, tvRPhone;
         Button btnRCheckout;
 
         public ServicesViewHolder(@NonNull View itemView) {
@@ -79,9 +79,10 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
             tvRDescription = itemView.findViewById(R.id.tvRDescription);
             tvRLocation = itemView.findViewById(R.id.tvRLocation);
             tvRWorking_hours = itemView.findViewById(R.id.tvRWorking_hours);
-            tvRPhone = itemView.findViewById(R.id.tvRPhone);
             tvRCost = itemView.findViewById(R.id.tvRCost);
+            tvRPhone = itemView.findViewById(R.id.tvRPhone);
             btnRCheckout = itemView.findViewById(R.id.btnRCheckout);
+
 
 
         }

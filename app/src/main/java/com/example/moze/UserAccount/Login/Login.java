@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.moze.AppSettings.MainActivity;
 import com.example.moze.PayPal.PayPalPayments;
 import com.example.moze.UserAccount.Model.LoginResponse;
 import com.example.moze.R;
@@ -119,7 +120,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 if(response.isSuccessful()){
                     Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
 
-                    Intent registerIntent = new Intent(Login.this, PayPalPayments.class);
+                    Intent registerIntent = new Intent(Login.this, MainActivity.class);
                     startActivity(registerIntent);
                 }else{
 
